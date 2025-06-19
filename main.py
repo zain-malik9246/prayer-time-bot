@@ -97,7 +97,7 @@ def calculate_prayer_times():
     maghrib = prayer_times.maghrib
     maghrib_end = maghrib + timedelta(minutes=30)
     isha_astro = prayer_times.isha
-    isha_cap = maghrib + timedelta(minutes=90)
+    isha_cap = maghrib + timedelta(minutes=80)
     isha = isha_cap if isha_astro.hour >= 23 else isha_astro
 
     night_start = maghrib
@@ -108,11 +108,12 @@ def calculate_prayer_times():
         tahajjud += timedelta(minutes=1)
     tahajjud = tahajjud.replace(second=0, microsecond=0)
 
+    now_plus_5 = (datetime.now(TIMEZONE) + timedelta(minutes=5)).replace(second=0, microsecond=0)
     prayer_start = {
         "fajr": prayer_times.fajr,
         "dhuhr": prayer_times.dhuhr,
         "asr": prayer_times.asr,
-        "maghrib": maghrib,
+        "maghrib": now_plus_5,
         "isha": isha,
         "tahajjud": tahajjud
     }
