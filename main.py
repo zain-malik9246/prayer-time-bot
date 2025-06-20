@@ -108,12 +108,11 @@ def calculate_prayer_times():
         tahajjud += timedelta(minutes=1)
     tahajjud = tahajjud.replace(second=0, microsecond=0)
 
-    now_plus_5 = (datetime.now(TIMEZONE) + timedelta(minutes=5)).replace(second=0, microsecond=0)
     prayer_start = {
         "fajr": prayer_times.fajr,
         "dhuhr": prayer_times.dhuhr,
         "asr": prayer_times.asr,
-        "maghrib": now_plus_5,
+        "maghrib": maghrib,
         "isha": isha,
         "tahajjud": tahajjud
     }
