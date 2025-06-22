@@ -79,7 +79,7 @@ def send_daily_prayer_summary(prayer_start, prayer_end, today):
 
 # 🕰️ Prayer Calculation
 def calculate_prayer_times():
-    today = date.today()
+    today = datetime.now(TIMEZONE).date()
     location = (LATITUDE, LONGITUDE)
 
     params = CalculationParameters(
@@ -137,7 +137,7 @@ def calculate_prayer_times():
 
 # 🔁 Loop
 def run_reminder_loop():
-    current_day = date.today()
+    current_day = datetime.now(TIMEZONE).date()
     prayer_start, prayer_end, prayer_reminder = calculate_prayer_times()
     send_daily_prayer_summary(prayer_start, prayer_end, current_day)
 
@@ -146,8 +146,8 @@ def run_reminder_loop():
         now_str = now.strftime('%H:%M')
 
         # ⏰ Daily reset + summary at 00:01
-        if date.today() != current_day or now_str == "00:01":
-            current_day = date.today()
+        if datetime.now(TIMEZONE).date() != current_day or now_str == "00:01":
+            current_day = datetime.now(TIMEZONE).date()
             prayer_start, prayer_end, prayer_reminder = calculate_prayer_times(
             )
             send_daily_prayer_summary(prayer_start, prayer_end, current_day)
