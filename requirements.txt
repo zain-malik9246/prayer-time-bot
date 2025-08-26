@@ -1,3 +1,4 @@
 adhanpy
 flask
 requests
+python-dotenv
