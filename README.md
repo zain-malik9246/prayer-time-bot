@@ -1,4 +1,5 @@
 <img src="logo.png" alt="Alt text" width="300">
+
 ---
 
 A personal Telegram bot that calculates **daily prayer times** at my **exact coordinates**, using the **London Unified Prayer Timetable (LUPT)** as a base.  
