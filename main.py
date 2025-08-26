@@ -63,7 +63,7 @@ def send_daily_prayer_summary(prayer_start, prayer_end, today):
         return f"{line.ljust(COL)}{tm.strftime('%H:%M')}"
 
     msg_lines = [
-        f"📍 Prayer Times for {today.strftime('%a %d-%m-%y')} (London 🇬🇧 · LUPT · Hanafi/Mithl 2 · coord-adjusted)",
+        f"📍 Prayer Times for {today.strftime('%a %d-%m-%y')} (Rainham, LDN 🇬🇧)",
         "",
         row("🌅", "Fajr starts", prayer_start['fajr']),
         row("   ⏳", "Ends", prayer_end['fajr']),
